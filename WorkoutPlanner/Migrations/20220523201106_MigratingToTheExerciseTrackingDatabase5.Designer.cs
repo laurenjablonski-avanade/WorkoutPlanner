@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WorkoutPlanner.Data;
 
@@ -11,9 +12,10 @@ using WorkoutPlanner.Data;
 namespace WorkoutPlanner.Migrations
 {
     [DbContext(typeof(TodoExerciseContext))]
-    partial class TodoExerciseContextModelSnapshot : ModelSnapshot
+    [Migration("20220523201106_MigratingToTheExerciseTrackingDatabase5")]
+    partial class MigratingToTheExerciseTrackingDatabase5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
