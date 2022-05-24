@@ -14,7 +14,7 @@
       "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7254", /* This line was this before "https://localhost:7254;http://localhost:5254" and I am not sure why. Both tables seem to be working separately with just 7254 */
+      "applicationUrl": "https://localhost:7254;http://localhost:5254", /* This line was this before "https://localhost:7254;http://localhost:5254" and I am not sure why. Both tables seem to be working separately with just 7254 */
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }

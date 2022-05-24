@@ -77,7 +77,6 @@ namespace WorkoutPlanner.Controllers
         {
             return ((DayService)_dayService).GetJoinedData().ToList();
         }
-        
-
+       
     }
 }

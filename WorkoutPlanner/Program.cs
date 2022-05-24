@@ -5,6 +5,7 @@ using WorkoutPlanner.Data.Repositories;
 using WorkoutPlanner.Models;
 using WorkoutPlanner.Services;
 
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,6 +15,17 @@ builder.Services.AddScoped<ICrudRepository<TodoExercise, int>, TodoExerciseRepos
 builder.Services.AddScoped<ICrudService<TodoExercise, int>, TodoExerciseService>();
 builder.Services.AddScoped<ICrudRepository<Day, int>, DayRepository>();
 builder.Services.AddScoped<ICrudService<Day, int>, DayService>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyAllowSpecificOrigins,
+        policy =>
+        {
+            policy.AllowAnyOrigin()
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        });
+});
 
 builder.Services.AddControllers();
 
@@ -31,6 +43,8 @@ builder.Services.AddSwaggerGen(c =>
 });
 
 var app = builder.Build();
+
+app.UseCors(MyAllowSpecificOrigins);//To EnableCors - CrossOrigin
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
