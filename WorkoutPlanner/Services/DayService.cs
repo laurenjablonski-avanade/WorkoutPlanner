@@ -35,6 +35,11 @@ namespace WorkoutPlanner.Services
             _dayRepository.Update(old);
             _dayRepository.Save();
         }
+
+        public IEnumerable<string> GetJoinedData()
+        {
+            return ((DayRepository)_dayRepository).GetJoinedData();
+        }   
     }
 }
 

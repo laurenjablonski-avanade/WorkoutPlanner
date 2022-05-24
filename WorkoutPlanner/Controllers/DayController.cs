@@ -69,5 +69,15 @@ namespace WorkoutPlanner.Controllers
             _dayService.Delete(id);
             return NoContent();
         }
+
+        [HttpGet]
+        [Route("info")]
+
+        public ActionResult<List<string>> GetInfo()
+        {
+            return ((DayService)_dayService).GetJoinedData().ToList();
+        }
+        
+
     }
 }
